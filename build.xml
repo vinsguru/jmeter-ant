@@ -8,7 +8,7 @@
 	
 	<!-- System & other ant properties -->
 	<property environment="env" />
-	<property name="jmeter.home" value="C:\JMeter\apache-jmeter-3.2\apache-jmeter-3.1"/>
+	<property name="jmeter.home" value="${env.JMETER_HOME}"/>
 	<property name="test.plan.path" value="${basedir}/${testplan.path}"/>
 	<property name="test.result.path" value="${basedir}/result"/>
 	<property name="test.log.path" value="${basedir}/log"/>
