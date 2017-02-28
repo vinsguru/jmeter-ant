@@ -47,3 +47,12 @@ ant install-plugins
 ```
 
 will take care of installing necessary plugins
+
+
+======================
+
+To run all the tasks in a proper order
+
+```
+ant all
+```
