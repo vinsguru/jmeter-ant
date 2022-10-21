@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
-<project name="CPT" basedir="." xmlns:ac="antlib:net.sf.antcontrib">
+<project name="JMETER_ANT_project" basedir="." xmlns:ac="antlib:net.sf.antcontrib">
 
 	<description>TestAutomationGuru - Continuous Performance Testing Process</description>
 
-	<!-- Read the test properties from build.propertis -->
+	<!-- Read the test properties from build.properties -->
 	<property file="build.properties" />
 	
-	<!-- System & other ant properties -->
+	<!-- System & other ant properties. Test Plan path pointing to new jmx. -->
 	<property environment="env" />
 	<property name="jmeter.home" value="${env.JMETER_HOME}"/>
-	<property name="test.plan.path" value="${basedir}/${testplan.path}"/>
+	<property name="test.plan.path" value="${basedir}/test/GoogleHome.jmx"/>
 	<property name="test.result.path" value="${basedir}/result"/>
 	<property name="test.log.path" value="${basedir}/log"/>
 	<property name="test.report.path" value="${basedir}/output"/>
@@ -34,13 +34,16 @@
 		 <delete dir="${test.report.path}"/>
 	</target>
 	
-	<!-- show test properties -->
+	<!-- show test properties for 2 threadgroups-->
 	<target name="show-test-properties">
 		<echo>JMETER_HOME				: ${jmeter.home}</echo>
 		<echo>TEST_PATH				: ${test.plan.path}</echo>
-		<echo>THREADGROUP_COUNT			: ${threadgroup.count}</echo>
-		<echo>THREADGROUP_RAMPUP			: ${threadgroup.rampup}</echo>
-		<echo>THREADGROUP_DURATION		: ${threadgroup.duration}</echo>
+		<echo>THREADGROUP_COUNT			: ${threadgroup.count1}</echo>
+		<echo>THREADGROUP_RAMPUP			: ${threadgroup.rampup1}</echo>
+		<echo>THREADGROUP_DURATION		: ${threadgroup.duration1}</echo>
+		<echo>THREADGROUP_COUNT2			: ${threadgroup.count2}</echo>
+		<echo>THREADGROUP_RAMPUP2			: ${threadgroup.rampup2}</echo>
+		<echo>THREADGROUP_DURATION2		: ${threadgroup.duration2}</echo>
 	</target>	
 
 	<!-- jmeter ant task -->
@@ -71,9 +74,12 @@
 			<property name="jmeter.save.saveservice.bytes" value="true"/>
 			<property name="jmeter.save.saveservice.response_data.on_error" value="true"/>
 			<!-- values for UDV -->
-			<property name="threadgroup.count" value="${threadgroup.count}"/>
-			<property name="threadgroup.rampup" value="${threadgroup.rampup}"/>
-			<property name="threadgroup.duration" value="${threadgroup.duration}"/>
+			<property name="threadgroup.count1" value="${threadgroup.count1}"/>
+			<property name="threadgroup.rampup1" value="${threadgroup.rampup1}"/>
+			<property name="threadgroup.duration1" value="${threadgroup.duration1}"/>
+			<property name="threadgroup.count2" value="${threadgroup.count2}"/>
+			<property name="threadgroup.rampup2" value="${threadgroup.rampup2}"/>
+			<property name="threadgroup.duration2" value="${threadgroup.duration2}"/>		
 		</jmeter>
 	</target>
 	
